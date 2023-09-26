@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %>
+    <body>
+        <%- include("./partials/nav") %>
+        <section id="interface">
+            <div class="navigation">
+                <div class="n1">
+                    <div class="search">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Search" />
+                    </div>
+                </div>
+                <div class="profile">
+                    <i class="fa-regular fa-bell"></i>
+                    <img src="/images/1.jpg" alt="Workflow" />
+                </div>
+            </div>
+            <h3 class="dash-name">
+                Dashboard
+            </h3>
+            <div class="chart-buttons">
+                <!-- Add links/buttons to navigate to different chart views -->
+                <a href="/bar" class="chart-button">View Bar Chart</a>
+                <a href="/pie" class="chart-button">View Pie Chart</a>
+                <a href="/line" class="chart-button">View Line Chart</a>
+                <a href="/scatter" class="chart-button">View Scatter Chart</a>
+              </div>
+            <div class="values">
+                <div class="val-box">
+                    <div>
+                        <canvas id="scatterChart" width="500" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+           const rainfallData = [
+  { month: "January", rainfall: 45.6 },
+  { month: "February", rainfall: 58.3 },
+  { month: "March", rainfall: 72.1 },
+  { month: "April", rainfall: 33.7 },
+  { month: "May", rainfall: 20.5 },
+  { month: "June", rainfall: 10.2 },
+  { month: "July", rainfall: 5.6 },
+  { month: "August", rainfall: 8.9 },
+  { month: "September", rainfall: 15.4 },
+  { month: "October", rainfall: 27.8 },
+  { month: "November", rainfall: 39.2 },
+  { month: "December", rainfall: 49.0 },
+];
+
+const scatterChart = new Chart(
+  document.getElementById("scatterChart").getContext("2d"),
+  {
+    type: "scatter",
+    data: {
+      labels: rainfallData.map((entry) => entry.month),
+      datasets: [
+        {
+          label: "Rainfall Data",
+          data: rainfallData.map((entry) => ({ x: entry.month, y: entry.rainfall })),
+          borderColor: "blue",
+          backgroundColor: "rgba(0, 128, 0, 0.2)",
+          pointRadius: 5,
+          pointHoverRadius: 8,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        x: {
+          type: "category",
+          title: {
+            display: true,
+            text: "Month",
+          },
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Rainfall (mm)",
+          },
+        },
+      },
+    },
+  }
+);
+
+        </script>      
+        <script src="/js/data.js"></script>
+    </body>
+</html>

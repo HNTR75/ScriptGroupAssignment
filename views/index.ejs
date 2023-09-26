@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %>
+    <body>
+        <%- include("./partials/nav") %>
+        <section id="interface">
+            <div class="navigation">
+                <div class="n1">
+                    <div class="search">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Search" />
+                    </div>
+                </div>
+                <div class="profile">
+                    <i class="fa-regular fa-bell"></i>
+                    <img src="/images/1.jpg" alt="Workflow" />
+                </div>
+            </div>
+            <h3 class="dash-name">
+                Dashboard
+            </h3>
+            <div class="chart-buttons">
+                <!-- Add links/buttons to navigate to different chart views -->
+                <a href="/bar" class="chart-button">View Bar Chart</a>
+                <a href="/pie" class="chart-button">View Pie Chart</a>
+                <a href="/line" class="chart-button">View Line Chart</a>
+                <a href="/scatter" class="chart-button">View Scatter Chart</a>
+              </div>
+            <div class="values">
+                <div class="val-box">
+                </div>
+            </div>
+        </section>      
+        <script src="/js/data.js"></script>
+    </body>
+</html>
