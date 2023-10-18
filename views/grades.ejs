@@ -1,0 +1,57 @@
+<!-- grades.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <%- include("./partials/header") %>
+        <!-- End Header -->
+
+        <!-- Sidebar -->
+        <%- include("./partials/aside") %>
+        <!-- End Sidebar -->
+
+        <!-- Main -->
+        <main class="main-container">
+            <div class="main-title">
+                <h2>Grades</h2>
+                <a href="grades/add-grades" class="button">Add Grade</a>
+                <a href="/grades/export-grades-csv" class="button">Export CSV</a>
+            </div>
+            <div class="board">
+                <table class="table" width="100%">
+                    <thead>
+                        <tr>
+                            <td>Grade ID</td>
+                            <td>Student ID</td>
+                            <td>Module ID</td>
+                            <td>Grade</td>
+                            <td>Grade Category</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% rows.forEach(function(grades) { %>
+                            <tr>
+                                <td><%= grades.grades_id %></td>
+                                <td><%= grades.students_id %></td>
+                                <td><%= grades.modules_id %></td>
+                                <td><%= grades.grade %></td>
+                                <td><%= grades.grade_category %></td>
+                                <td>
+                                    <a href="/grades/edit-grades/<%= grades.grades_id %>" class="edit">Edit</a>
+                                    <a href="/grades/delete-grades/<%= grades.grades_id %>" class="delete">Delete</a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

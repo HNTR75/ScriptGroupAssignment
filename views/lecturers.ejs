@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head") %>
+  <body>
+    <div class="grid-container">
+
+      <!-- Header -->
+      <%- include("./partials/header") %>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <%- include("./partials/aside") %>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2>Lecturers</h2>
+          <a href="lecturers/add-lecturers" class="button">Add Lecturer</a>
+          <a href="/lecturers/export-lecturers-csv" class="button">Export CSV</a>
+        </div>
+        <div class="board">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Lecturer ID</td>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Department ID</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% rows.forEach(function(row) { %>
+                        <tr>
+                            <td><%= row.lecturers_id %></td>
+                            <td><%= row.first_name %></td>
+                            <td><%= row.last_name %></td>
+                            <td><%= row.departments_id %></td>
+                            <td>
+                                <a href="/lecturers/edit-lecturers/<%= row.lecturers_id %>" class="edit">Edit</a>
+                                <a href="/lecturers/delete-lecturers/<%= row.lecturers_id %>" class="delete">Delete</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        
+      </main>
+      <!-- End Main -->
+    </div>
+    <script src="/js/scripts.js"></script>
+  </body>
+</html>
