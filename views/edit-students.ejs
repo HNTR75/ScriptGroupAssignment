@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+  <div class="grid-container">
+
+    <!-- Header -->
+    <%- include("./partials/header") %>
+    <!-- End Header -->
+
+    <!-- Sidebar -->
+    <%- include("./partials/aside") %>
+    <!-- End Sidebar -->
+
+    <!-- Main -->
+    <main class="main-container">
+      <div class="main-title">
+          <h2>Edit Student</h2>
+      </div>
+      <div class="form-board">
+        <!-- Left form-card: Student Form -->
+        <div class="form-card">
+          <div class="form-card-inner">
+            <form action="/students/edit-students/<%= students_id %>" method="post">
+              <div class="form-group">
+                <label>Student ID:</label>
+                <input type="text" class="form-control" name="students_id" value="<%= students_id %>" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" class="form-control" name="first_name" value="<%= first_name %>" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>Last Name:</label>
+                <input type="text" class="form-control" name="last_name" value="<%= last_name %>" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>Gender:</label>
+                <input type="text" class="form-control" name="gender" value="<%= gender %>" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>Program ID:</label>
+                <input type="text" class="form-control" name="programs_id" value="<%= programs_id %>" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>Enrollment Year:</label>
+                <input type="text" class="form-control" name="enrollment_year" value="<%= enrollment_year %>" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-info" value="Save Changes"/>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Right form-card: Additional Information -->
+        <div class="form-card" id="right-form-card">
+          <div class="form-card-inner">
+            <h3>Student Guidelines</h3>
+            <ul>
+              <li>Provide a unique student ID.</li>
+              <li>Enter the first name of the student.</li>
+              <li>Enter the last name of the student.</li>
+              <li>Select the gender for the student.</li>
+              <li>Specify the program ID.</li>
+              <li>Specify the enrollment year.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

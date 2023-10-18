@@ -1,0 +1,64 @@
+<!-- edit-lecturers.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <%- include("./partials/header") %>
+        <!-- End Header -->
+  
+        <!-- Sidebar -->
+        <%- include("./partials/aside") %>
+        <!-- End Sidebar -->
+      
+        <!-- Main -->
+        <main class="main-container">
+            <div class="main-title">
+                <h2>Edit Lecturers</h2>
+            </div>
+            <div class="form-board">
+                <!-- Left form-card: Lecturer Edit Form -->
+                <div class="form-card">
+                    <div class="form-card-inner">
+                        <form action="/lecturers/edit-lecturers" method="post">
+                            <div class="form-group">
+                                <label>Lecturer ID:</label>
+                                <input type="text" class="form-control" name="lecturers_id" value="<%= lecturers_id %>" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label>First Name:</label>
+                                <input type="text" class="form-control" name="first_name" value="<%= first_name %>" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name:</label>
+                                <input type="text" class="form-control" name="last_name" value="<%= last_name %>" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label>Department ID:</label>
+                                <input type="text" class="form-control" name="departments_id" value="<%= departments_id %>" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-info" value="Save Changes"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Right form-card: Additional Information -->
+                <div class="form-card" id="right-form-card">
+                    <div class="form-card-inner">
+                        <h3>Lecturer Guidelines</h3>
+                        <ul>
+                            <li>Edit the details of the lecturer.</li>
+                            <li>Ensure the Lecturer ID is correct.</li>
+                            <li>Update the first name, last name, and Department ID as needed.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

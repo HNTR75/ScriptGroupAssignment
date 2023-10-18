@@ -1,0 +1,62 @@
+<!-- add-grades.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <%- include("./partials/header") %>
+        <!-- End Header -->
+
+        <!-- Sidebar -->
+        <%- include("./partials/aside") %>
+        <!-- End Sidebar -->
+
+        <!-- Main -->
+        <main class="main-container">
+            <div class="main-title">
+                <h2>Add Grades</h2>
+            </div>
+            <div class="form-board">
+                <!-- Left form-card: Grade Creation Form -->
+                <div class="form-card">
+                    <div class="form-card-inner">
+                        <form action="/add-grades" method="post">
+                            <!-- Add your form fields for grades here -->
+                            <div class="form-group">
+                                <label>Student ID:</label>
+                                <input type="text" class="form-control" name="students_id" value="<%= students_id %>" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label>Module ID:</label>
+                                <input type="text" class="form-control" name="modules_id" value="<%= modules_id %>" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label>Grade:</label>
+                                <input type="number" class="form-control" name="grade" value="<%= grade %>" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-info" value="Add"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Right form-card: Additional Information -->
+                <div class="form-card" id="right-form-card">
+                    <div class="form-card-inner">
+                        <h3>Grade Guidelines</h3>
+                        <ul>
+                            <li>Provide the Student ID.</li>
+                            <li>Provide the Module ID.</li>
+                            <li>Enter the grade (numeric value).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

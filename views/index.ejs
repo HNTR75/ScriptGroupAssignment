@@ -1,36 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("./partials/head") %>
-    <body>
-        <%- include("./partials/nav") %>
-        <section id="interface">
-            <div class="navigation">
-                <div class="n1">
-                    <div class="search">
-                        <i class="fa-solid fa-search"></i>
-                        <input type="text" placeholder="Search" />
-                    </div>
-                </div>
-                <div class="profile">
-                    <i class="fa-regular fa-bell"></i>
-                    <img src="/images/1.jpg" alt="Workflow" />
-                </div>
-            </div>
-            <h3 class="dash-name">
-                Dashboard
-            </h3>
-            <div class="chart-buttons">
-                <!-- Add links/buttons to navigate to different chart views -->
-                <a href="/bar" class="chart-button">View Bar Chart</a>
-                <a href="/pie" class="chart-button">View Pie Chart</a>
-                <a href="/line" class="chart-button">View Line Chart</a>
-                <a href="/scatter" class="chart-button">View Scatter Chart</a>
+<%- include("./partials/head") %>
+  <body>
+    <div class="grid-container">
+
+      <!-- Header -->
+      <%- include("./partials/header") %>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <%- include("./partials/aside") %>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2>Dashboard</h2>
+        </div>
+
+        <div class="main-cards">
+            <div class="card">
+              <div class="card-inner">
+                <h3>PROGRAMS</h3>
+                <i class="fas fa-graduation-cap"></i> <!-- Updated icon for Programs -->
               </div>
-            <div class="values">
-                <div class="val-box">
-                </div>
+              <h1>250</h1> <!-- Number of programs in your system -->
             </div>
-        </section>      
-        <script src="/js/data.js"></script>
-    </body>
+          
+            <div class="card">
+              <div class="card-inner">
+                <h3>DEPARTMENTS</h3>
+                <i class="fas fa-building"></i> <!-- Updated icon for Departments -->
+              </div>
+              <h1>15</h1> <!-- Number of departments -->
+            </div>
+          
+            <div class="card">
+              <div class="card-inner">
+                <h3>STUDENTS</h3>
+                <i class="fas fa-user-graduate"></i> <!-- Updated icon for Students -->
+              </div>
+              <h1>500</h1> <!-- Number of registered students in your system -->
+            </div>
+          
+            <div class="card">
+              <div class="card-inner">
+                <h3>MODULES</h3>
+                <i class="fas fa-file-alt"></i> <!-- Updated icon for Evaluation Forms -->
+              </div>
+              <h1>20</h1> <!-- Number of evaluation forms to be displayed -->
+            </div>
+          </div>
+          
+      
+        <div class="charts">
+          <div class="charts-card">
+            <h2 class="chart-title">Most Popular Programs</h2>
+            <canvas id="barChart" ></canvas>
+          </div>
+          <div class="charts-card">
+            <h2 class="chart-title">Top Performing Students</h2>
+            <canvas id="lineChart"></canvas>
+          </div>
+        </div>     
+      </main>
+      <!-- End Main -->
+
+    </div>
+    <script src="/js/scripts.js"></script>
+
+  </body>
 </html>
